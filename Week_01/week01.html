@@ -1,0 +1,630 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>第一周</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d2309a31-3a5b-4fe7-9300-bf89412abdeb" class="page sans"><header><h1 class="page-title">第一周</h1></header><div class="page-body"><h2 id="fcee3ae8-f72a-48dc-b9d2-520609cd01c5" class="">第一周 | 数组，链表，跳表</h2><p id="1f01800e-bd95-4113-bec0-6385d2048449" class="">1.数组，链表，跳表的基本实现和特性</p><p id="0b444d4c-02ae-49d4-8262-0e028347bfc8" class=""><strong>参考链接</strong></p><ul id="5da3204e-d4da-476b-b755-39f7cce34a08" class="bulleted-list"><li><a href="http://developer.classpath.org/doc/java/util/ArrayList-source.html">Java 源码分析（ArrayList）</a></li></ul><ul id="dff06a11-fb0e-4ca0-80f7-91f9414e5e2f" class="bulleted-list"><li><a href="http://www.geeksforgeeks.org/implementing-a-linked-list-in-java-using-class/">Linked List 的标准实现代码</a></li></ul><ul id="56f222e4-e569-4c92-8d09-13e64a54b04d" class="bulleted-list"><li><a href="http://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/code/LinkedList.java">Linked List 示例代码</a></li></ul><ul id="d72683d0-880e-4a7b-8ca0-034fbc6c9005" class="bulleted-list"><li><a href="http://developer.classpath.org/doc/java/util/LinkedList-source.html">Java 源码分析（LinkedList）</a></li></ul><ul id="09d3d1ce-b38a-4270-b26b-9f9e71ea78e2" class="bulleted-list"><li>LRU Cache - Linked list：<a href="http://leetcode-cn.com/problems/lru-cache"> LRU 缓存机制</a></li></ul><ul id="cca3b668-aef0-47fc-8e5e-8278ff22ae79" class="bulleted-list"><li>Redis - Skip List：<a href="http://redisbook.readthedocs.io/en/latest/internal-datastruct/skiplist.html">跳跃表</a>、<a href="http://www.zhihu.com/question/20202931">为啥 Redis 使用跳表（Skip List）而不是使用 Red-Black？</a></li></ul><p id="8ad11456-6549-44ac-820f-66e28e9e83d1" class="">2.实战题目解析：移动零</p><p id="27ba5ae6-c263-4caa-9f6d-d146842983dc" class=""><strong>Array 实战题目</strong></p><ul id="f52e59d6-a440-4b40-9b55-000663646d77" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/container-with-most-water/">盛最多水的容器</a>（腾讯、百度、字节跳动在近半年内面试常考）</li></ul><ul id="99943815-7de0-45ea-80b5-0cf87b0f1cdb" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/move-zeroes/">移动零</a>（华为、字节跳动在近半年内面试常考）</li></ul><ul id="e2947274-3a9b-42ec-aaad-738ce0dab889" class="bulleted-list"><li><a href="https://leetcode.com/problems/climbing-stairs/">爬楼梯</a>（阿里巴巴、腾讯、字节跳动在半年内面试常考）</li></ul><ul id="528d8720-5cf9-4f8a-88ce-7d64518d0c16" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/3sum/">三数之和</a>（国内、国际大厂历年面试高频老题）</li></ul><p id="d4a18eb9-4676-487d-8a22-869a975cef33" class="">3.实战题目解析：盛水最多的容器， 爬楼梯</p><p id="6090ff07-324c-451a-b69f-e82bd8196bcd" class=""><strong>Array 实战题目</strong></p><ul id="498919ee-f2b2-4fd6-a8fe-5b15b04f8e1d" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/container-with-most-water/">盛最多水的容器</a>（腾讯、百度、字节跳动在近半年内面试常考）</li></ul><ul id="e19bc9b1-c85e-4aee-87d9-b39eec2682d9" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/move-zeroes/">移动零</a>（华为、字节跳动在近半年内面试常考）</li></ul><ul id="a76a6751-2b9e-4fa0-96e9-9d986038b893" class="bulleted-list"><li><a href="https://leetcode.com/problems/climbing-stairs/">爬楼梯</a>（阿里巴巴、腾讯、字节跳动在半年内面试常考）</li></ul><ul id="a9f2e8e8-81d2-4c93-9bed-7aeaaf7939a2" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/3sum/">三数之和</a>（国内、国际大厂历年面试高频老题）</li></ul><p id="8bb005ec-224c-4450-a541-203229ff3150" class="">4.实战题目解析：3数之和，环形链表</p><p id="f9806013-9e38-42fb-bb17-1ce55527cc74" class=""><strong>Array 实战题目</strong></p><ul id="5f0b1cc2-9744-4f8c-aa88-d81b07d17acb" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/two-sum/">两数之和</a>（近半年内，字节跳动在面试中考查此题达到 152 次）</li></ul><ul id="68187a6d-0242-4894-a083-65c55178a6cb" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/container-with-most-water/">盛最多水的容器</a>（腾讯、百度、字节跳动在近半年内面试常考）</li></ul><ul id="4cd54e5f-7afa-4d7a-a2bf-5b74c859d392" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/move-zeroes/">移动零</a>（华为、字节跳动在近半年内面试常考）</li></ul><ul id="5d8ea01c-9a93-443b-a154-faf4f5fd7762" class="bulleted-list"><li><a href="https://leetcode.com/problems/climbing-stairs/">爬楼梯</a>（阿里巴巴、腾讯、字节跳动在半年内面试常考）</li></ul><ul id="5ccca922-cec0-41c5-bd70-38c09c08e123" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/3sum/">三数之和</a>（国内、国际大厂历年面试高频老题）</li></ul><p id="5793a45b-0c8a-4223-81c2-6d33a2e28f49" class=""><strong>Linked List 实战题目</strong></p><ul id="30cf79e3-702a-48eb-b1e9-7e1b0eed3c11" class="bulleted-list"><li><a href="https://leetcode.com/problems/reverse-linked-list/">反转链表</a>（字节跳动、亚马逊在半年内面试常考）</li></ul><ul id="276b8038-927f-4465-b75c-76c8bdbcc7bd" class="bulleted-list"><li><a href="https://leetcode.com/problems/swap-nodes-in-pairs">两两交换链表中的节点</a>（阿里巴巴、字节跳动在半年内面试常考）</li></ul><ul id="6364a9b3-d058-4d3e-87f3-e03c40ae98c4" class="bulleted-list"><li><a href="https://leetcode.com/problems/linked-list-cycle">环形链表</a>（阿里巴巴、字节跳动、腾讯在半年内面试常考）</li></ul><ul id="8dc6cd53-46c0-45db-8275-b11b42f7cad6" class="bulleted-list"><li><a href="https://leetcode.com/problems/linked-list-cycle-ii">环形链表 II</a></li></ul><ul id="6107d1ec-6a11-43b1-84d1-00a2dde1617a" class="bulleted-list"><li><a href="https://leetcode.com/problems/reverse-nodes-in-k-group/">K 个一组翻转链表</a>（字节跳动、猿辅导在半年内面试常考）</li></ul><p id="48739f3f-2238-4c2f-b6f2-fe914532630a" class="">
+</p><h2 id="314df773-6908-46f8-8236-e0c67d23eab3" class="">第一周 | 栈， 队列，优先队列，双端队列</h2><p id="e3cfc246-2ad9-44d3-9d47-7d0cc7f2a75c" class="">1.栈和队列的实现与特性</p><ul id="61a5c2b4-e5fb-41d3-a398-679b1c1bfa4b" class="bulleted-list"><li><a href="http://docs.oracle.com/javase/10/docs/api/java/util/PriorityQueue.html">Java 的 PriorityQueue 文档</a></li></ul><ul id="8d3ef79e-d9b8-4061-b4f8-1e9cd680a095" class="bulleted-list"><li><a href="http://developer.classpath.org/doc/java/util/Stack-source.html">Java 的 Stack 源码</a></li></ul><ul id="def03eea-a5a5-47ca-9991-c5c2ca383760" class="bulleted-list"><li><a href="http://fuseyism.com/classpath/doc/java/util/Queue-source.html">Java 的 Queue 源码</a></li></ul><ul id="0b9612a9-e20c-4127-b4e3-cd2dddb0931b" class="bulleted-list"><li><a href="http://docs.python.org/2/library/heapq.html">Python 的 heapq</a></li></ul><ul id="30aadf73-e927-4635-98b1-90dc01c26dee" class="bulleted-list"><li><a href="http://docs.python.org/2/library/collections.html">高性能的 container 库</a></li></ul><p id="d833147c-2d0c-40e4-85e1-dedac5fc4e3a" class="">2.实战题目解析：有效的括号，最小栈等问题</p><p id="c7d6fc77-68ec-48b8-9b23-a5520dfcb9ea" class=""><strong>预习题目</strong></p><ul id="19653a36-1243-49ab-968d-6e94b5a143e1" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/valid-parentheses/">有效的括号</a>（亚马逊、JPMorgan 在半年内面试常考）</li></ul><ul id="a40df313-2116-4493-a2c1-8f517b9cafe2" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/min-stack/">最小栈</a>（亚马逊在半年内面试常考）</li></ul><p id="6613e88a-4e9b-4d7a-8be9-2d92d4a7b51e" class=""><strong>实战题目</strong></p><ul id="434b5aeb-8b82-4fc6-910c-df16ab45067d" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/largest-rectangle-in-histogram">柱状图中最大的矩形</a>（亚马逊、微软、字节跳动在半年内面试中考过）</li></ul><ul id="70ab211a-2900-44da-995c-b072e46d0ad1" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/sliding-window-maximum">滑动窗口最大值</a>（亚马逊在半年内面试常考）</li></ul><p id="1b70cab2-a093-4a26-93fb-b8b4cd874d3f" class=""><strong>课后作业</strong></p><ul id="f063ea28-091a-45cf-a0aa-5c7fb9bb1076" class="bulleted-list"><li>用 add first 或 add last 这套新的 API 改写 Deque 的代码</li></ul><ul id="6a8c53f0-ee96-4926-9d86-2b2bf7516735" class="bulleted-list"><li>分析 Queue 和 Priority Queue 的源码</li></ul><ul id="85ce1d82-c5f5-4c1b-acc6-f976d06839f3" class="bulleted-list"><li><a href="https://leetcode.com/problems/design-circular-deque">设计循环双端队列</a>（Facebook 在 1 年内面试中考过）</li></ul><ul id="97a8e90f-79fd-45b8-8469-4b6ac1e2b047" class="bulleted-list"><li><a href="https://leetcode.com/problems/trapping-rain-water/">接雨水</a>（亚马逊、字节跳动、高盛集团、Facebook 在半年内面试常考）</li></ul><p id="3d4d8e2a-a7ce-4330-ac41-af8408df1885" class="">说明：改写代码和分析源码这两项作业，同学们需要在第 1 周的学习总结中完成。如果不熟悉 Java 语言，这两项作业可选做。</p><p id="a05c8f60-2940-4f3b-8443-3b6a00614be6" class="">
+</p><h2 id="279c24f5-fb04-4c6f-b4b5-92c7c7ea685e" class="">第一周 | 哈希表 映射 集合</h2><p id="cb3b81b3-5f86-433d-9cec-aaba1826d2ca" class="">1.哈希表，映射，集合的实现与特性</p><p id="d20135b2-dbac-4c7c-99bb-7377851920e8" class=""><strong>参考链接</strong></p><ul id="35f7db47-253d-489f-9c87-2a1d13cbc814" class="bulleted-list"><li><a href="http://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Set.html">Java Set 文档</a></li></ul><ul id="e56e8c86-d25f-49e6-ad73-badef4d614ed" class="bulleted-list"><li><a href="http://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Map.html">Java Map 文档</a></li></ul><p id="a0bce5da-9145-4703-beca-0d3e3ccc3618" class=""><strong>课后作业</strong></p><p id="ef3c64bb-fef3-4e41-97e9-e9693260dc3b" class="">写一个关于 HashMap 的小总结。说明：对于不熟悉 Java 语言的同学，此项作业可选做。</p><p id="f97f1b38-f1b6-453c-a1a6-e72b6afafc99" class="">2.实战题目解析：有效的字母异位词等问题</p><p id="6d53774e-bcf4-4b9f-9606-7f4b1443daf9" class="">
+</p><p id="9c139940-22b3-4b11-bf39-ac0b877bc446" class="">2.实战题目解析：有效的字母 异位词等问题</p><p id="16cff8f4-5d57-4092-907d-91e69ea43538" class=""><strong>实战题目 / 课后作业</strong></p><ul id="2075cd83-1754-4aba-903c-a02bc42292b4" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/valid-anagram/description/">有效的字母异位词</a>（亚马逊、Facebook、谷歌在半年内面试中考过）</li></ul><ul id="ce43a22b-5ac3-4489-83de-d01ca85eaffc" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/group-anagrams/">字母异位词分组</a>（亚马逊在半年内面试中常考）</li></ul><ul id="cb4d9981-ba04-4bf3-a885-846692e0489c" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/two-sum/description/">两数之和</a>（亚马逊、字节跳动、谷歌、Facebook、苹果、微软、腾讯在半年内面试中常考）</li></ul><p id="df9dd55d-ce96-4af4-875b-e847fae02360" class=""><strong>参考链接</strong></p><ul id="26de6154-150f-4397-9752-6f1c402cf350" class="bulleted-list"><li><a href="http://shimo.im/docs/R6g9WJV89QkHrDhr">养成收藏精选代码的习惯（示例）</a></li></ul><h2 id="e0dd7252-2121-475b-afd9-fb3caaa4da11" class=""><strong>本周作业</strong></h2><ol id="667f4b75-f926-4a22-a7ab-c8f4ef8861f7" class="numbered-list" start="1"><li>根据自身掌握情况从下方题目中，任选 6 题完成并按要求提交。学有余力的同学可酌情增加练习数量。</li></ol><ol id="eb16de79-e891-46b1-883c-090126bfbfa2" class="numbered-list" start="2"><li>完成本周学习总结并按要求提交。</li></ol><p id="43c591d7-57ab-450f-a97d-b7cfaf48fce3" class="">作业提交方式可从“学习手册”中查看。</p><h3 id="d6495816-e7f2-4360-9216-3284c8dfd665" class=""><strong>简单题目</strong></h3><ul id="2978a53e-9fcb-444d-9627-4696e40803eb" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/">删除排序数组中的重复项</a>（Facebook、字节跳动、微软在半年内面试中考过）</li></ul><ul id="22460352-462f-446e-86a7-fdfc15a2acf9" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/rotate-array/">旋转数组</a>（微软、亚马逊、PayPal 在半年内面试中考过）</li></ul><ul id="b1515d93-9faf-43c2-9df9-8d8b58d45059" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/merge-two-sorted-lists/">合并两个有序链表</a>（亚马逊、字节跳动在半年内面试常考）</li></ul><ul id="f99f569c-55d2-414a-a16d-31e360f7b9b0" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/merge-sorted-array/">合并两个有序数组</a>（Facebook 在半年内面试常考）</li></ul><ul id="ec343501-fa03-4eec-97ce-e07c4572996a" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/two-sum/">两数之和</a>（亚马逊、字节跳动、谷歌、Facebook、苹果、微软在半年内面试中高频常考）</li></ul><ul id="29aca238-8148-415f-86ea-0bc806430871" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/move-zeroes/">移动零</a>（Facebook、亚马逊、苹果在半年内面试中考过）</li></ul><ul id="f50873ff-ccd4-4c49-a9c4-ec2557dd8cc2" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/plus-one/">加一</a>（谷歌、字节跳动、Facebook 在半年内面试中考过）</li></ul><ul id="74147b4e-a340-4bf6-9eac-9eb0f7f397a3" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/valid-anagram/description/">有效的字母异位词</a>（亚马逊、Facebook、谷歌在半年内面试中考过）</li></ul><h3 id="3aa327ff-2083-474c-b686-b41a6be83c18" class=""><strong>中等题目</strong></h3><ul id="8dc55860-61d3-4155-b3ea-58240089ca15" class="bulleted-list"><li><a href="https://leetcode.com/problems/design-circular-deque">设计循环双端队列</a>（Facebook 在 1 年内面试中考过）</li></ul><ul id="6a3d72a4-1d87-4f28-8ae8-0c36836f563d" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/group-anagrams/">字母异位词分组</a>（亚马逊在半年内面试中常考）</li></ul><h3 id="cdd4af05-34f7-42de-a736-43e746b12c87" class=""><strong>困难题目</strong></h3><ul id="77a81a5e-010a-4a0b-8bc3-9060a27b3bd3" class="bulleted-list"><li><a href="https://leetcode.com/problems/trapping-rain-water/">接雨水</a>（亚马逊、字节跳动、高盛集团、Facebook 在半年内面试常考）</li></ul><h3 id="c2466f45-733f-47d5-b66e-28d334b59d2d" class=""><strong>学习总结主题</strong></h3><ul id="2dcb11c0-2084-4643-adc8-135e871e57f5" class="bulleted-list"><li>用 add first 或 add last 这套新的 API 改写 Deque 的代码。</li></ul><ul id="9aeda68c-fb08-4ab7-9d31-2b1ad630d86f" class="bulleted-list"><li>分析 Queue 和 Priority Queue 的源码。</li></ul><h2 id="e46be1cb-6874-4ae7-9388-869c74ef9a19" class=""><strong>训练场练习（选做）</strong></h2><p id="446952b1-3134-4470-8b3d-2cd397da566d" class="">学有余力的同学，可以挑战以下【训练场】模拟面试真题：</p><p id="223eb9a5-8eb8-4df9-9d9c-9e775a359e64" class="">数组相关：</p><ul id="6b4b80cf-a2ea-412f-a88d-eff97e99f0be" class="bulleted-list"><li><a href="https://u.geekbang.org/playground/exam/823?question=7673">选择餐馆</a></li></ul><p id="110c5181-375e-4479-8785-adf1445577b9" class="">链表相关：</p><ul id="7bf4532f-50c0-4459-9d2e-c27fbbf2dfb1" class="bulleted-list"><li><a href="https://u.geekbang.org/playground/exam/823?question=8285">合并两个有序链表</a></li></ul><p id="1f735a70-794f-4c38-948c-75ded1f6ff16" class="">栈相关：</p><ul id="219aae19-0aac-4ae3-9ba7-bed846d7907b" class="bulleted-list"><li><a href="https://u.geekbang.org/playground/exam/823?question=8286">视野总和</a></li></ul><ul id="ca42abb5-f2fb-4865-ab96-fdb8ab46dfc1" class="bulleted-list"><li><a href="https://u.geekbang.org/playground/exam/823?question=7676">每日在线用户量</a></li></ul><p id="5d1b14a7-d304-44f7-ae4b-e2c537017f74" class="">队列相关：</p><ul id="4c3ff589-436a-4b00-b13c-2e7d2b2f296b" class="bulleted-list"><li><a href="https://u.geekbang.org/playground/exam/823?question=7675">数据流查询</a></li></ul><p id="0d4626dc-5c14-4c1a-a7a2-6638b0a5d168" class="">哈希相关：</p><ul id="8e72bedf-6c55-4ee8-b855-4fa313c60a20" class="bulleted-list"><li><a href="https://u.geekbang.org/playground/exam/823?question=7677">找雪花</a></li></ul></div></article></body></html>
