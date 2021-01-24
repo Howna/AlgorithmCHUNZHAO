@@ -69,3 +69,30 @@ HashMap 的详细解释：https://tech.meituan.com/2016/06/24/java-hashmap.html
 1.本期练习的很多题目都是之前做过的，但是只做了一遍，发现很多又完全没有印象变成了新题。所以一道题多做几遍是很有必要的，主要是时间看上的管理和控制。前3遍是最重要的，当天/隔天/一周，需要在时间上做调整，否则每天都只是做新题，无法起到练习的效果。<br />
 
 2.java语言不熟，文档也没有按照要求去看，依然是时间上的问题，需要调整。upup！
+
+3.第一次上传遇到了一点问题：<br />
+1.git add .<br />
+2.git commit -m "week01 assignment"<br />
+3.git push -u origin main<br />
+
+这样做报错了。。
+
+时间不太够了有点着急！！问了助教之后百度了一下：<br />
+git pull --rebase origin master<br />
+提示：fatal: couldn't find remote ref master
+
+git remote add origin https://github.com/Howna/AlgorithmCHUNZHAO.git<br />
+提示：fatal: remote origin already exists.
+
+再一次：<br />
+$ git pull --rebase origin master<br />
+提示：fatal: couldn't find remote ref master
+
+输入：
+$ git push -u origin main
+
+提交成功！
+不知道什么原因。。可能是因为先提交了一个README文件。
+下次一定早一点交作业！！！
+
+
