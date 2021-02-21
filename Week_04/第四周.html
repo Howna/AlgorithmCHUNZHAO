@@ -1,0 +1,627 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>第四周</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f8cf45a6-3b1d-4073-bf72-65c933a014c2" class="page sans"><header><h1 class="page-title">第四周</h1></header><div class="page-body"><h3 id="0a5e74fd-fc50-4a1e-b497-0e74336ce506" class="">1.动态规划的实现及关键点</h3><p id="4b7c52ae-74ef-4b98-b09a-a75160ef91c6" class=""><strong>参考链接</strong></p><ul id="82784de0-3327-49b3-ac78-c2ab9d371a54" class="bulleted-list"><li><a href="https://shimo.im/docs/EICAr9lRPUIPHxsH">递归代码模板</a></li></ul><ul id="7ff42ffb-8c01-48b4-93b1-833b91e473f3" class="bulleted-list"><li><a href="https://shimo.im/docs/zvlDqLLMFvcAF79A">分治代码模板</a></li></ul><ul id="29d6a6b2-f1cb-4647-a059-66e3226a6615" class="bulleted-list"><li><a href="https://en.wikipedia.org/wiki/Dynamic_programming">动态规划定义</a></li></ul><h3 id="26f7d7af-d40b-4f2f-ae4f-ef5cf049eb07" class="">2. DP例题解析：Fibonacci数列、路径计数.</h3><h3 id="f1a76702-4187-490a-a53d-d290d03681bf" class="">3.DP例题解析：最长公共子序列</h3><p id="cc38fe4d-6840-4b4d-8531-280a125e288e" class=""><strong>参考链接</strong></p><ul id="d9925c32-c020-4366-af64-f65ff8b7a5e2" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/unique-paths/">不同路径</a>（Facebook、亚马逊、微软在半年内面试中考过）</li></ul><ul id="5605fc8d-59b5-4191-afce-0e0a0719f60e" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/unique-paths-ii/">不同路径 II </a>（谷歌、美团、微软在半年内面试中考过）</li></ul><ul id="2d716163-75ad-41f0-8483-1cc726aeec31" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/longest-common-subsequence/">最长公共子序列</a>（字节跳动、谷歌、亚马逊在半年内面试中考过）</li></ul><ul id="5c99ab38-ea24-44da-a9af-4f29cf51e1a7" class="bulleted-list"><li><a href="https://www.bilibili.com/video/av53233912?from=search&amp;seid=2847395688604491997">MIT 动态规划课程最短路径算法</a></li></ul><h3 id="9b22aa01-e484-45ea-8032-18fe98b26bcc" class="">4.实战题目解析：三角形最小路径和</h3><p id="00ab9b49-83fc-4100-92b0-5e816944203a" class=""><strong>实战题目</strong></p><ul id="bc3152b6-b109-40a8-af27-f8f5fd34af7e" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/climbing-stairs/description/">爬楼梯</a>（（阿里巴巴、腾讯、字节跳动在半年内面试常考））</li></ul><ul id="ea659643-7b2d-4cae-9fa8-9f5cbde0edbf" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/triangle/description/">三角形最小路径和</a>（亚马逊、苹果、字节跳动在半年内面试考过）</li></ul><ul id="2e817dcb-01c1-4be6-8765-996c461675f3" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/maximum-subarray/">最大子序和</a>（亚马逊、字节跳动在半年内面试常考）</li></ul><ul id="a669293b-8acd-489d-8daa-46282eb7c045" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/maximum-product-subarray/description/">乘积最大子数组</a>（亚马逊、字节跳动、谷歌在半年内面试中考过）</li></ul><ul id="2ec63dfe-55dc-44e5-8194-86898667f348" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/coin-change/description/">零钱兑换</a>（亚马逊在半年内面试中常考）</li></ul><h3 id="c5e40641-b70c-44e9-8910-7a404c787875" class="">5. 实战题目解析：最大子序列和</h3><ul id="85127114-a714-47db-90d5-9d125fccb9a3" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/climbing-stairs/description/">爬楼梯</a>（（阿里巴巴、腾讯、字节跳动在半年内面试常考））</li></ul><ul id="5874a4f0-37a6-4e20-b801-b3b286ee0a51" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/triangle/description/">三角形最小路径和</a>（亚马逊、苹果、字节跳动在半年内面试考过）</li></ul><ul id="074bd1d5-fa88-4527-8a6c-ca302af450c7" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/maximum-subarray/">最大子序和</a>（亚马逊、字节跳动在半年内面试常考）</li></ul><ul id="db2655de-2995-45dd-9556-aef16711cae8" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/maximum-product-subarray/description/">乘积最大子数组</a>（亚马逊、字节跳动、谷歌在半年内面试中考过）</li></ul><ul id="20fb52f0-b7ad-4f52-afbe-64b334f3d3b7" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/coin-change/description/">零钱兑换</a>（亚马逊在半年内面试中常考）</li></ul><h3 id="ef667073-f6fe-42db-9e22-7bdf98cc063e" class="">6. 实战题目解析：打家劫舍</h3><p id="df6b4b8e-25f2-4aa2-a42d-5d8384f28e6a" class=""><strong>实战题目</strong></p><ul id="c858a76b-261e-4164-bb65-e86dc03ad0f2" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/house-robber/">打家劫舍</a>（字节跳动、谷歌、亚马逊在半年内面试中考过）</li></ul><ul id="3437bbc3-6a32-4a0f-85a1-56a30f315b13" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/house-robber-ii/description/">打家劫舍 II </a>（字节跳动在半年内面试中考过）</li></ul><ul id="afecffdd-f106-4c03-9dc6-dc741a2e490d" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/#/description">买卖股票的最佳时机</a>（亚马逊、字节跳动、Facebook 在半年内面试中常考）</li></ul><ul id="5aea87bf-9c4f-404e-b7c1-1d57c1af67af" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/">买卖股票的最佳时机 II </a>（亚马逊、字节跳动、微软在半年内面试中考过）</li></ul><ul id="cf8ab499-0026-4e95-86de-64eead7d42ff" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/">买卖股票的最佳时机 III </a>（字节跳动在半年内面试中考过）</li></ul><ul id="44b83e4b-52dc-44d4-861c-735636ada7e3" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/">最佳买卖股票时机含冷冻期</a>（谷歌、亚马逊在半年内面试中考过）</li></ul><ul id="1ac86312-dc6e-4ad3-a99d-8b85ec54fff3" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/">买卖股票的最佳时机 IV </a>（谷歌、亚马逊、字节跳动在半年内面试中考过）</li></ul><ul id="28d11280-87ef-4b1f-9454-005cc2a80345" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/">买卖股票的最佳时机含手续费</a></li></ul><ul id="98dd3b7c-9f7a-433e-bfae-969679aee23d" class="bulleted-list"><li><a href="https://leetcode-cn.com/circle/article/qiAgHn/">股票问题系列通解</a></li></ul><p id="be8f0779-89c9-4021-8fef-7d5cec98cf1b" class=""><strong>高级 DP 实战题目</strong></p><ul id="eb94054c-350d-4cad-87a7-db2bdc50bf77" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/perfect-squares/">完全平方数</a>（亚马逊、谷歌在半年内面试中考过）</li></ul><ul id="1c97754b-74f9-48fc-8a14-bd2c4c00d76c" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/edit-distance/">编辑距离</a> <strong>（重点）</strong></li></ul><ul id="eb480b5d-95d7-464f-bb91-66b1dfc8ae00" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/jump-game/">跳跃游戏</a>（亚马逊在半年内面试中考过）</li></ul><ul id="6a4bcb2d-1b31-4cbe-b23f-31b55f430a3c" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/jump-game-ii/">跳跃游戏 II </a>（亚马逊、华为字节跳动在半年内面试中考过）</li></ul><ul id="1a8fd791-f7c1-4151-913f-1201024e2053" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/unique-paths/">不同路径</a>（Facebook、亚马逊、微软在半年内面试中考过）</li></ul><ul id="9ab6ed8f-e126-45b2-9794-caca7dd07632" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/unique-paths-ii/">不同路径 II </a>（谷歌、美团、微软在半年内面试中考过）</li></ul><ul id="94dd1294-609b-4ea7-b95a-24e3bc057c62" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/unique-paths-iii/">不同路径 III </a>（谷歌在半年内面试中考过）</li></ul><ul id="6104c821-71b8-46ad-a8cc-d8f6cea1f2e4" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/coin-change/">零钱兑换</a>（亚马逊在半年内面试中常考）</li></ul><ul id="a88663b9-d090-464f-a4e8-986fd5e7f899" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/coin-change-2/">零钱兑换 II </a>（亚马逊、字节跳动在半年内面试中考过）</li></ul><p id="23853e96-4170-4093-b4b3-81976cba17f7" class=""><strong>注意：请大家先消化前面的实战题目，高级 DP 的方法和题解会在课程后面解锁。</strong></p><p id="01203719-43e6-470d-a82d-68ff9fb7aed7" class="">======================================================</p><h2 id="260faae8-d22e-4a6e-b2da-3c0a9aa23359" class=""><strong>本周作业</strong></h2><ol id="97fbd14d-2bbf-40cf-9be8-9ee58860750d" class="numbered-list" start="1"><li>根据自身掌握情况从下方题目中，任选 6 题完成并按要求提交。学有余力的同学可酌情增加练习数量。</li></ol><ol id="5ea9e3fd-f835-445f-b7b4-d79213bc68da" class="numbered-list" start="2"><li>完成本周学习总结并按要求提交。</li></ol><p id="26f0cf22-df70-4455-97d9-aebbd6384da9" class="">作业提交方式可从“学习手册”中查看。</p><h3 id="194470c6-db3a-4bb0-aae8-0cddce965492" class=""><strong>中等题目</strong></h3><ul id="63a1880e-554d-4c96-a8fb-b99a2fe46317" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/minimum-path-sum/">最小路径和</a>（亚马逊、高盛集团、谷歌在半年内面试中考过）</li></ul><ul id="b6b26102-8784-4dfc-aba2-b01d055bb3f0" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/decode-ways">解码方法</a>（亚马逊、Facebook、字节跳动在半年内面试中考过）</li></ul><ul id="a1cc4782-1d39-4dfb-b17c-35ee2e753bde" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/maximal-square/">最大正方形</a>（华为、谷歌、字节跳动在半年内面试中考过）</li></ul><ul id="fd321c26-2eec-4b5d-973b-8bcd2139db73" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/task-scheduler/">任务调度器</a>（Facebook 在半年内面试中常考）</li></ul><ul id="198d13dd-0bba-449c-8ad4-936e3fc7b2cb" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/palindromic-substrings/">回文子串</a>（Facebook、苹果、字节跳动在半年内面试中考过）</li></ul><h3 id="9d51928f-6863-4e88-a0df-3866622542fa" class=""><strong>困难题目</strong></h3><ul id="6e4addd6-4db0-46a7-8020-85217f30c380" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/longest-valid-parentheses/">最长有效括号</a>（字节跳动、亚马逊、微软在半年内面试中考过）</li></ul><ul id="f533e58a-6755-4ef5-a052-04b8dae80ae7" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/edit-distance/">编辑距离</a>（字节跳动、亚马逊、谷歌在半年内面试中考过）</li></ul><ul id="d54621b2-d354-4b71-9a79-e390e0de771b" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/max-sum-of-rectangle-no-larger-than-k/">矩形区域不超过 K 的最大数值和</a>（谷歌在半年内面试中考过）</li></ul><ul id="e708875e-8f3a-480d-8174-c376c9858f79" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/frog-jump/">青蛙过河</a>（亚马逊、苹果、字节跳动在半年内面试中考过）</li></ul><ul id="47076aa9-f894-4a0f-8423-be12a16c0703" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/split-array-largest-sum">分割数组的最大值</a>（谷歌、亚马逊、Facebook 在半年内面试中考过）</li></ul><ul id="146cf5a3-8343-4053-8c45-73b6642fcb2a" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/student-attendance-record-ii/">学生出勤记录 II </a>（谷歌在半年内面试中考过）</li></ul><ul id="4b07cef8-d595-460f-ad12-0e97cca62718" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/minimum-window-substring/">最小覆盖子串</a>（Facebook 在半年内面试中常考）</li></ul><ul id="bb167ca9-c060-4433-a40c-deed2a22687b" class="bulleted-list"><li><a href="https://leetcode-cn.com/problems/burst-balloons/">戳气球</a>（亚马逊在半年内面试中考过）</li></ul><h2 id="9ed3b577-4c8e-44f0-96ea-13102962239a" class=""><strong>训练场练习（选做）</strong></h2><p id="a9227503-3486-4264-b1c6-189d6fdbb78d" class="">学有余力的同学，可以挑战以下【训练场】模拟面试真题：</p><ul id="25c05efd-333c-4d19-bb45-eaff71786f4a" class="bulleted-list"><li><a href="https://u.geekbang.org/playground/exam/823?question=7689">找最大的能量值</a></li></ul><ul id="278f6699-c63f-45ee-9760-d53a1e7d5568" class="bulleted-list"><li><a href="https://u.geekbang.org/playground/exam/823?question=7690">天团能量最大值的分组</a></li></ul><ul id="6473d47e-6663-47b0-a921-73f2451d4ade" class="bulleted-list"><li><a href="https://u.geekbang.org/playground/exam/823?question=7691">安排投食点</a></li></ul><ul id="61cd4251-0356-47d6-b0b6-8f65ed3ac1f5" class="bulleted-list"><li><a href="https://u.geekbang.org/playground/exam/823?question=7692">找加油方法总数</a></li></ul><ul id="34ff4ae1-ab41-4a5b-bfa6-cf45522253cc" class="bulleted-list"><li><a href="https://u.geekbang.org/playground/exam/823?question=7693">聪明的贷款者</a></li></ul></div></article></body></html>
