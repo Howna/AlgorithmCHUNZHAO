@@ -8,46 +8,43 @@
 
 ![image](https://github.com/Howna/AlgorithmCHUNZHAO/blob/main/Week_06/sort_mind.png)
 
-
 ### 相关概念
 
 - **稳定**：如果a原本在b前面，而a=b，排序之后a仍然在b的前面。
 - **不稳定**：如果a原本在b的前面，而a=b，排序之后 a 可能会出现在 b 的后面。
 - **时间复杂度**：对排序数据的总的操作次数。反映当n变化时，操作次数呈现什么规律。
-- **空间复杂度**：是指算法在计算机内执行时所需存储空间的度量，它也是数据规模n的函数
+- **空间复杂度：**是指算法在计算机内执行时所需存储空间的度量，它也是数据规模n的函数
 
 ![image](https://github.com/Howna/AlgorithmCHUNZHAO/blob/main/Week_06/sort_comp.png)
-
 ## 一.插入排序
 
 ### 1.1简单插入排序
 
-**思路**：从第一个数字开始排,每次都把待排序中的一个数字插入到前面的已排序数组当中，成为一个长度更长的有序数组。有限次操作之后，数组就会有序。
+**思路**：从第一个数字开始排 ，每次都把待排序中的一个数字插入到前面的已排序数组当中，成为一个长度更长的有序数组。有限次操作之后，数组就会有序。
 
 - **代码：基于交换**
 
 ```java
 //插入排序
 public class Solution{
-    public int[] insertSort(int[] nums){
-    	int len = nums.lenght;
-	for (int i = 1; i < len; i++) {
-	     for (int j = i; j > 0; j--) {
-		if (nums[j-1] > nums[j]) {
-		    swap(nums, j, j-1);
-		} else {
-		    break;
+	public int[] insertSort(int[] nums){
+		int len = nums.lenght;
+		for (int i = 1; i < len; i++) {
+			for (int j = i; j > 0; j--) {
+				if (nums[j-1] > nums[j]) {
+					 swap(nums, j, j-1);
+				} else {
+						break;
+				}
+			}	
 		}
-	      }	
-	}
 	return nums;	
-    }
-
-    private void swap(int[] nums, int index1, int index2) {
-	int temp = nums[index1];
-	nums[index1] = nums[index2];
-	nums[index2] = temp;
-    }
+	}
+	private void swap(int[] nums, int index1, int index2) {
+		int temp = nums[index1];
+		nums[index1] = nums[index2];
+		nums[index2] = temp;
+	}
 }
 ```
 
@@ -75,7 +72,7 @@ public class Solution{
 			}
 			swap(nums, i, minIndex);
 		}
-		return nums;	
+	return nums;	
 	}
 	private void swap(int[] nums, int index1, int index2) {
 		int temp = nums[index1];
@@ -92,9 +89,11 @@ public class Solution{
 
 2.减治思想：外层循环每一次排定一个元素，问题规模旧减少一个元素，直到所有的元素都被排序。
 
-### 2.2堆排序
+### 2.2.堆排序
 
-堆排序是对简单选择排序的一种改进，改进效果明显。堆是具有下列性质的完全二叉树：
+堆排序是对简单选择排序的一种改进，这种改进的效果是非常明显的。
+
+堆是具有下列性质的完全二叉树：
 
 每个结点的值都大于或等于其左右孩子结点的值，称为大顶堆；或者每个结点的值都小于或等于其左右孩子结点的值，称为小顶堆。
 
@@ -199,13 +198,14 @@ public class Solution{
 	public int[] bubbleSort(int[] nums){
 		int len = nums.lenght;
 		for(int i = 0; i < len; i++){
+			
 			for(int j = 0; j < len - i - 1; i++){
 				if(nums[j] < nums[j+1]){
 					swap(nums, j, j+1);
 				}
 			}
 		}
-		return nums;	
+	return nums;	
 	}
 	private void swap(int[] nums, int index1, int index2) {
 		int temp = nums[index1];
@@ -297,32 +297,31 @@ public static void merge(int[] arr, int left, int mid, int right) {       
 ```java
 //计数排序
 public int[] sortArray(int[] nums) {
-	int begin = Integer.MAX_VALUE, end = Integer.MIN_VALUE;
-	for (int num : nums) {
-		begin = Math.min(begin, num);
-		end = Math.max(end, num);
-	}
-	return sortArray(nums, begin, end);
-}
-
-private int[] sortArray(int[] nums, int begin, int end) {
-	int len = end - begin + 1, index = 0;
-	int[] array = new int[len];
-	for (int num : nums) {
-		array[num - begin]++;
-	}
-	for (int i = 0; i < len; i++) {
-		while (array[i]-- != 0) {
-		nums[index++] = begin + i;
+		int begin = Integer.MAX_VALUE, end = Integer.MIN_VALUE;
+		for (int num : nums) {
+			begin = Math.min(begin, num);
+			end = Math.max(end, num);
 		}
+		return sortArray(nums, begin, end);
 	}
-	return nums;
-}
+	private int[] sortArray(int[] nums, int begin, int end) {
+		int len = end - begin + 1, index = 0;
+		int[] array = new int[len];
+		for (int num : nums) {
+			array[num - begin]++;
+		}
+		for (int i = 0; i < len; i++) {
+			while (array[i]-- != 0) {
+				nums[index++] = begin + i;
+			}
+		}
+		return nums;
+	}
 ```
 
 ### 5.2桶排序
 
-桶排序是计数排序的升级版。利用函数的映射关系，高效与否的关键就在于这个映射函数的确定。桶排序的工作的原理：假设输入数据服从均匀分布，将数据分到有限数量的桶里，每个桶再分别排序（有可能再使用别的排序算法或是以递归方式继续使用桶排序进行排）。
+桶排序是计数排序的升级版。它利用了函数的映射关系，高效与否的关键就在于这个映射函数的确定。桶排序的工作的原理：假设输入数据服从均匀分布，将数据分到有限数量的桶里，每个桶再分别排序（有可能再使用别的排序算法或是以递归方式继续使用桶排序进行排）。
 
 桶排序最好情况下使用线性时间O(n)，桶排序的时间复杂度，取决与对各个桶之间数据进行排序的时间复杂度，因为其它部分的时间复杂度都为O(n)。很显然，桶划分的越小，各个桶之间的数据越少，排序所用的时间也会越少。但相应的空间消耗就会增大。
 
@@ -342,22 +341,22 @@ private int[] sortArray(int[] nums, int begin, int end) {
 ```java
 //桶排序  此代码相当于一个数值一个桶value保存的是该数值出现的次数
 public int[] sortArray(int[] nums) {
-	int begin = Integer.MAX_VALUE, end = Integer.MIN_VALUE;
-	Map<Integer, Integer> map = new HashMap<>();
-	for (int num : nums) {
-		begin = Math.min(begin, num);
-		end = Math.max(end, num);
-		map.put(num, map.getOrDefault(num, 0) + 1);
-	}
-	int index = 0, count;
-	for (int i = begin; i <= end; i++) {
-		count = map.getOrDefault(i, 0);
-		while (count-- != 0) {
-		nums[index++] = i;
+		int begin = Integer.MAX_VALUE, end = Integer.MIN_VALUE;
+		Map<Integer, Integer> map = new HashMap<>();
+		for (int num : nums) {
+			begin = Math.min(begin, num);
+			end = Math.max(end, num);
+			map.put(num, map.getOrDefault(num, 0) + 1);
 		}
+		int index = 0, count;
+		for (int i = begin; i <= end; i++) {
+			count = map.getOrDefault(i, 0);
+			while (count-- != 0) {
+				nums[index++] = i;
+			}
+		}
+		return nums;
 	}
-	return nums;
-}
 ```
 
 ### 5.3基数排序
@@ -380,40 +379,39 @@ public int[] sortArray(int[] nums) {
 
 ```java
 public int[] sortArray(int[] nums) {
-	int digits = 0, temp = 1, mark = 10;
-	for (int num : nums) {
-		while (num / temp != 0) {
-			digits++;
+		int digits = 0, temp = 1, mark = 10;
+		for (int num : nums) {
+			while (num / temp != 0) {
+				digits++;
+				temp *= mark;
+			}
+		}
+		return radixSort(nums, digits);
+	}
+	private int[] radixSort(int[] nums, int digits) {
+		Map<Integer, List<Integer>> map = new HashMap<>(10);
+		int temp = 1, mark = 10, startNum = -9, endNum = 9;
+		while (digits-- > 0) {
+			for (int num : nums) {
+				int n = num / temp % mark;
+				List<Integer> list = map.getOrDefault(n, new ArrayList<>());
+				list.add(num);
+				map.put(n, list);
+			}
+			for (int i = startNum, index = 0; i <= endNum; i++) {
+				if (!map.containsKey(i)) {
+					continue;
+				}
+				List<Integer> list = map.get(i);
+				for (int num : list) {
+					nums[index++] = num;
+				}
+				map.put(i, new ArrayList<>());
+			}
 			temp *= mark;
 		}
+		return nums;
 	}
-	return radixSort(nums, digits);
-}
-
-private int[] radixSort(int[] nums, int digits) {
-	Map<Integer, List<Integer>> map = new HashMap<>(10);
-	int temp = 1, mark = 10, startNum = -9, endNum = 9;
-	while (digits-- > 0) {
-		for (int num : nums) {
-			int n = num / temp % mark;
-			List<Integer> list = map.getOrDefault(n, new ArrayList<>());
-			list.add(num);
-			map.put(n, list);
-		}
-		for (int i = startNum, index = 0; i <= endNum; i++) {
-			if (!map.containsKey(i)) {
-				continue;
-			}
-			List<Integer> list = map.get(i);
-			for (int num : list) {
-				nums[index++] = num;
-			}
-			map.put(i, new ArrayList<>());
-		}
-		temp *= mark;
-	}
-	return nums;
-}
 ```
 
 基数排序基于分别排序，分别收集，所以是稳定的。但基数排序的性能比桶排序要略差，每一次关键字的桶分配都需要O(n)的时间复杂度，而且分配之后得到新的关键字序列又需要O(n)的时间复杂度。假如待排数据可以分为d个关键字，则基数排序的时间复杂度将是O(d*2n) ，当然d要远远小于n，因此基本上还是线性级别的。基数排序的空间复杂度为O(n+k)，其中k为桶的数量。一般来说n>>k，因此额外空间需要大概n个左右。
