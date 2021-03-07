@@ -29,25 +29,25 @@
 ```java
 //插入排序
 public class Solution{
-	public int[] insertSort(int[] nums){
-		int len = nums.lenght;
-		for (int i = 1; i < len; i++) {
-			for (int j = i; j > 0; j--) {
-				if (nums[j-1] > nums[j]) {
-					 swap(nums, j, j-1);
-				} else {
-						break;
-				}
-			}	
+    public int[] insertSort(int[] nums){
+    	int len = nums.lenght;
+	for (int i = 1; i < len; i++) {
+	     for (int j = i; j > 0; j--) {
+		if (nums[j-1] > nums[j]) {
+		    swap(nums, j, j-1);
+		} else {
+		    break;
 		}
-		return nums;	
+	      }	
 	}
+	return nums;	
+    }
 
-	private void swap(int[] nums, int index1, int index2) {
-		int temp = nums[index1];
-		nums[index1] = nums[index2];
-		nums[index2] = temp;
-	}
+    private void swap(int[] nums, int index1, int index2) {
+	int temp = nums[index1];
+	nums[index1] = nums[index2];
+	nums[index2] = temp;
+    }
 }
 ```
 
