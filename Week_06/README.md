@@ -339,7 +339,7 @@ public int[] sortArray(int[] nums) {
 **代码**
 
 ```java
-//桶排序  此代码相当于一个数值一个桶value保存的是该数值出现的次数
+//桶排序  此代码相当于一个数值一个桶value保存的是该数值出现的次数 感觉有点问题。。。待完善
 public int[] sortArray(int[] nums) {
 		int begin = Integer.MAX_VALUE, end = Integer.MIN_VALUE;
 		Map<Integer, Integer> map = new HashMap<>();
